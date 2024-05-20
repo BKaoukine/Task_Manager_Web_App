@@ -8,13 +8,7 @@ function ProjectSection()
     return(
         <section className="bg-[#232529] min-h-screen lg:pl-[20%] overflow-x-hidden">
                 <TopProjectSection/>
-                <TaskNavBar isVisible={false} onClose={function (): void {
-                throw new Error("Function not implemented.");
-            } } props={{
-                insertedArticle: function (article: any): void {
-                    throw new Error("Function not implemented.");
-                }
-            }}/>
+                <TaskNavBar/>
                 <TaskStatusStats/>
                 <TaskContainer/>
         </section>
