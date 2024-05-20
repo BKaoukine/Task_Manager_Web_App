@@ -25,7 +25,7 @@ const TaskContainer: React.FC = () => {
         
     <div className="mt-14 pl-10 pr-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-y-4 gap-x-8 overflow-x-auto no-scrollbar">
             {tasks.map(task => (
-            <Task task_name={task.task_name} task_description={task.task_description} task_date={task.task_date}/>
+            <Task task_name={task.task_name} task_description={task.task_description} task_date={task.task_date} task_priority={task.task_priority}/>
             ))}
     </div>
     /* inline-grid grid-cols-4  mt-14 gap-y-8 gap-x-80 sm:gap-x-16 overflow-x-auto no-scrollbar */ 
