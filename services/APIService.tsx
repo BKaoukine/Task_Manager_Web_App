@@ -1,6 +1,12 @@
+interface TaskProps {
+    task_name: string;
+    task_description: string;
+    task_date: string;
+    task_time: string;
+    task_priority: string;
+}
 
-
-class APIService{
+class APIService {
 
     //Get Tasks
     static fetchTasks = async () => {
@@ -20,7 +26,7 @@ class APIService{
 
     //Add Task
 
-    static InsertArticle = async ({ task_name, task_description, task_date, task_time, task_priority}) => {
+    static InsertArticle: React.FC<TaskProps>  = async ({ task_name, task_description, task_date, task_time, task_priority}) => {
         const response = await fetch('/api/add_task', {
             method: 'POST',
             headers: {

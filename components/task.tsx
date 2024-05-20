@@ -1,4 +1,11 @@
-function Task({task_name, task_description, task_date, task_priority}) {
+interface TaskProps {
+    task_name: string;
+    task_description: string;
+    task_date: string;
+    task_priority: string;
+}
+
+const Task: React.FC<TaskProps> = ({ task_name, task_description, task_date, task_priority }) => {
 
     let priority;
     if(task_priority === 'H')
