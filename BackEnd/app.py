@@ -68,5 +68,29 @@ def add_task():
         app.logger.error(f"Exception occurred: {e}")
         return jsonify({"error": str(e)}), 500
 
+@app.route('/api/delete_task/<int:task_id>', methods=['DELETE'])
+def delete_task(task_id):
+    """Endpoint to delete a task by its ID"""
+    session = Session() # type: ignore
+    Task.delete_task(session, task_id)
+    session.close()
+    return jsonify({"message": "Task deleted successfully"}), 200
+
+@app.route('/api/update_task/<int:task_id>', methods=['PUT'])
+def update_task(task_id):
+    """Endpoint to update a task by its ID"""
+    data = request.json
+    task_name = data.get('task_name')
+    task_description = data.get('task_description')
+    task_date = data.get('task_date')
+    task_time = data.get('task_time')
+    task_priority = data.get('task_priority')
+
+    session = Session() # type: ignore
+    Task.update_task(session, task_id, task_name, task_description, task_date, task_time, task_priority)
+    session.close()
+    return jsonify({"message": "Task updated successfully"}), 200
+
+
 if __name__ == '__main__':
     app.run(debug=True)

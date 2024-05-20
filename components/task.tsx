@@ -10,20 +10,20 @@ const Task: React.FC<TaskProps> = ({ task_name, task_description, task_date, tas
     let priority;
     if(task_priority === 'H')
         {
-            priority = (<div className="w-auto h-[25px] px-1.5 py-0.5 bg-[#ED3159] rounded-[100px] justify-center items-center gap-2.5 inline-flex">
+            priority = (<div className="w-auto h-[25px] px-1.5 py-0.5 bg-[#F43F5E] rounded-[100px] justify-center items-center gap-2.5 inline-flex">
             <div className="p-[6px] text-white font-normal leading-[15px] text-xs">High</div>
             </div>)
         }else if (task_priority === 'M')
             {
                 priority = (
-                    <div className="w-auto h-[25px] px-1.5 py-0.5 bg-[#f8bc3c] rounded-[100px] justify-center items-center gap-2.5 inline-flex">
+                    <div className="w-auto h-[25px] px-1.5 py-0.5 bg-[#EAB308] rounded-[100px] justify-center items-center gap-2.5 inline-flex">
                 <div className="p-[6px] text-white font-normal leading-[15px] text-xs">Medium</div>
                 </div>
                 )
             }else if (task_priority === 'L')
                 {
                     priority = (
-                        <div className="w-auto h-[25px] px-1.5 py-0.5 bg-[#979293] rounded-[100px] justify-center items-center gap-2.5 inline-flex">
+                        <div className="w-auto h-[25px] px-1.5 py-0.5 bg-[#22C55E] rounded-[100px] justify-center items-center gap-2.5 inline-flex">
                 <div className="p-[6px] text-white font-normal leading-[15px] text-xs">Low</div>
                 </div>
                     )
