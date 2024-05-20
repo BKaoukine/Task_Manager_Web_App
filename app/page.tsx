@@ -1,16 +1,18 @@
-import Image from "next/image";
+"use client"
+
 import SideNavBar from "@/components/left_nav_bar";
 import ProjectSection from "@/components/project_section";
-
+import { useEffect, useState } from "react";
 
 
 export default function Home() {
-  return (
-    <main className="flex flex-row justify-between overflow-x-hidden">
-            <SideNavBar/>
+  
+    return(
+    <main className="grid min-h-screen">
+          <SideNavBar />
 
-            <ProjectSection/>
-    </main>
+          <ProjectSection />
+      </main>
   );
 }
 function useClient() {

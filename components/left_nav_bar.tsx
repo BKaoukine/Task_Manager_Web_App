@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 
 function MobileSideNavBar() {
     return (
-        <section className="h-screen lg:hidden w-100 bg-[#1B1D21]">
+        <section className="min-h-screen fixed lg:hidden w-100 bg-[#1B1D21]">
             {/* Logo Section */}
 
             <div className="flex items-center ml-8 mt-8">
@@ -18,7 +18,7 @@ function MobileSideNavBar() {
             {/* Main Menu Section */}
 
 
-            <ul className="text-center mt-8 ml-8 text-[#6C717B] ">
+            <ul className="text-center mt-8 ml-8 text-[#6C717B] mr-8">
                 <li className='flex pb-4 text-xs font-bold'>MAIN MENU</li>
                 <li className="flex items-center pb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -27,30 +27,33 @@ function MobileSideNavBar() {
 
                     <h3 className='ml-2'>Dashboard</h3>
                 </li>
-                <li className="flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <li className="flex items-center justify-between">
+                    <div className='flex'>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.666 3.888A2.25 2.25 0 0 0 13.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 0 1-.75.75H9a.75.75 0 0 1-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 0 1-2.25 2.25H6.75A2.25 2.25 0 0 1 4.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 0 1 1.927-.184" />
                 </svg>
                     <h3 className='ml-2'>Project</h3>
+                    </div>
 
-                    <svg className='w-5 relative left-[86px]' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <svg className='w-5' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                     </svg>
 
                 
                 </li>
 
-                <li className='flex pt-16 text-xs font-bold'>TASK
-                <svg className='w-5  relative left-[140px]' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <li className='flex pt-16 text-xs font-bold justify-between'>
+                    <h1>TASK</h1>
+                <svg className='w-5' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                 </svg>
 
                 </li>
             </ul>
-            <hr className='mt-20 border-inherit w-60 m-auto '/>
+            <hr className='mt-80 border-inherit w-60 m-auto '/>
 
             {/* Controle Section */}
-            <ul className="text-center mt-8 ml-8 text-[#6C717B]">
+            <ul className="text-center mt-8 ml-8 text-[#6C717B] bottom-24 absolute">
                 <li className="flex items-center pb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
@@ -74,13 +77,40 @@ function MobileSideNavBar() {
     );
 }
 
+function HidNavButton({ setShow, show })
+{
+    return(
+        <button className="absolute top-4 left-60 z-auto" onClick={() => { setShow(!show);}}>
+        <svg width="48" height="49" viewBox="0 0 48 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g filter="url(#filter0_d_847_658)">
+            <rect x="4" y="3" width="40" height="40" rx="20" fill="white" fill-opacity="0.12"/>
+            <path d="M29 18L19 28M19 18L29 28" stroke="#6C717B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            <defs>
+            <filter id="filter0_d_847_658" x="0" y="0.6" width="48" height="48" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+            <feOffset dy="1.6"/>
+            <feGaussianBlur stdDeviation="2"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 0.14902 0 0 0 0 0.2 0 0 0 0 0.301961 0 0 0 0.03 0"/>
+            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_847_658"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_847_658" result="shape"/>
+            </filter>
+            </defs>
+        </svg>
+    </button>
+    )
+
+}
+
 function SideNavBar() {
 
-    const [show, setShow] = useState(false);
-    const [classname, setClassName] = React.useState("absolute top-4");
+    const [show, setShow] = useState(true);
         return (
 
-           <> <button className={classname} onClick={() => {setClassName("absolute top-4 left-60 "); setShow(!show);}}>
+           <> 
+           
+            {show && <button className="absolute top-4" onClick={() => {setShow(!show);}}>
                 <svg className="lg:hidden" width="48" height="49" viewBox="0 0 48 49" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g filter="url(#filter0_d_847_679)">
                         <rect x="4" y="3" width="40" height="40" rx="20" fill="white" fill-opacity="0.12" />
@@ -98,10 +128,11 @@ function SideNavBar() {
                         </filter>
                     </defs>
                 </svg>
-            </button>
-        
-            {show && <MobileSideNavBar />}
-            <section className="h-screen hidden lg:block sm:w-1/5 xs:w-1/2 bg-[#1B1D21]">
+            </button>}
+            {!show && <MobileSideNavBar />}
+            {!show && <HidNavButton setShow={setShow} show={show} />}
+
+            <section className="hidden min-h-screen fixed lg:block sm:w-1/5 xs:w-1/2 bg-[#1B1D21] h-full" >
                 {/* Logo Section */}
 
                 <div className="flex items-center ml-10 mt-8">
@@ -113,7 +144,7 @@ function SideNavBar() {
                 {/* Main Menu Section */}
 
 
-                <ul className="text-center mt-8 ml-10 text-[#6C717B] ">
+                <ul className="text-center mt-8 ml-10 text-[#6C717B] mr-10">
                     <li className='flex pb-4 text-xs font-bold'>MAIN MENU</li>
                     <li className="flex items-center pb-4">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -122,21 +153,25 @@ function SideNavBar() {
 
                         <h3 className='ml-2'>Dashboard</h3>
                     </li>
-                    <li className="flex items-center">
+                    <li className="flex items-center justify-between">
+                    <div className='flex'>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.666 3.888A2.25 2.25 0 0 0 13.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 0 1-.75.75H9a.75.75 0 0 1-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 0 1-2.25 2.25H6.75A2.25 2.25 0 0 1 4.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 0 1 1.927-.184" />
                         </svg>
                         <h3 className='ml-2'>Project</h3>
-
-                        <svg className='w-5 relative left-[190px]' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        </div>
+                        <svg className='w-5' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                         </svg>
+                        
+
 
 
                     </li>
 
-                    <li className='flex pt-16 text-xs font-bold'>TASK
-                        <svg className='w-5  relative left-[244px]' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <li className='flex pt-16 text-xs font-bold justify-between'>
+                        <h2>TASK</h2>
+                        <svg className='w-5' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                         </svg>
 

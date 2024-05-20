@@ -6,7 +6,7 @@ import TopProjectSection from "./top_project_bar";
 function ProjectSection()
 {
     return(
-        <section className="bg-[#232529] h-screen grow">
+        <section className="bg-[#232529] min-h-screen lg:pl-[20%] overflow-x-hidden">
                 <TopProjectSection/>
                 <TaskNavBar/>
                 <TaskStatusStats/>
